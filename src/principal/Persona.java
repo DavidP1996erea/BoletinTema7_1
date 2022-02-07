@@ -57,6 +57,19 @@ public  class Persona implements  Comparable<Persona> {
     }
 
     /**
+     * Constructor copia, asigna los atributos de la clase al objeto creado.
+     * @param persona
+     */
+    public Persona( Persona persona){
+        this.nombre=persona.nombre;
+        this.edad=persona.edad;
+        this.dni=persona.dni;
+        this.genero=persona.genero;
+        this.altura=persona.altura;
+        this.peso=persona.peso;
+    }
+
+    /**
      * Método que no necesita valores de entrada, que calcula el IMC de la persona
      * que llame al método. Su salida es 1 en caso de que sea sobrepeso, -1 que sea
      * delgadez y 0 en caso de que sea saludable.
@@ -76,11 +89,14 @@ public  class Persona implements  Comparable<Persona> {
         }else {
             imc=0;
         }
-
         return imc;
     }
 
 
+    /**
+     * Método sin valores de entrada que devuelve si la persona que llama al objeto es mayor
+     * o menor de edad.
+     */
     public void mayorEdad(){
 
         if(this.edad>=18){
