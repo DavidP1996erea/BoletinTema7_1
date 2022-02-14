@@ -1,5 +1,7 @@
 package principal;
 
+import java.util.ArrayList;
+
 enum Genero{
     H, M, O
 }
@@ -108,7 +110,68 @@ public  class Persona implements  Comparable<Persona> {
     }
 
 
+    public static void pesoMedio(ArrayList <Persona> listaPersonas){
 
+
+        double pesoTotal=0;
+
+        for (Persona x:listaPersonas){
+
+            pesoTotal=pesoTotal+x.getPeso();
+        }
+        pesoTotal=pesoTotal/ listaPersonas.size();
+
+        System.out.println("El peso medio es: " + pesoTotal);
+
+    }
+
+    public static void alturaMedia(ArrayList <Persona> listaPersonas){
+
+        double alturaTotal=0;
+
+        for (Persona x:listaPersonas){
+
+            alturaTotal=alturaTotal+x.getAltura();
+        }
+        alturaTotal=alturaTotal/ listaPersonas.size();
+
+        System.out.println("La altura media es: " + alturaTotal);
+
+    }
+
+
+    public static void edadMedia(ArrayList <Persona> listaPersona){
+        int edadTotal=0;
+
+        for (Persona x:listaPersona){
+
+            edadTotal=edadTotal+x.getEdad();
+        }
+        edadTotal=edadTotal/ listaPersona.size();
+
+        System.out.println("La edad media es: " + edadTotal);
+
+    }
+
+
+    public static void genero(ArrayList <Persona> listaPersonas){
+
+        int contadorH=0;
+        int contadorM=0;
+
+        for (Persona x:listaPersonas){
+            if(x.getGenero()==Genero.H){
+                contadorH++;
+            }else if(x.getGenero()==Genero.M){
+                contadorM++;
+            }
+
+        }
+
+        System.out.println("La cantidad de hombres es: " + contadorH);
+        System.out.println("La cantidad de mujeres es: " + contadorM);
+
+    }
 
     // Métodos Getters y Setters
 

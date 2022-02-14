@@ -3,6 +3,7 @@ package principal;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
+import static principal.Persona.*;
 
 public class Main {
 
@@ -54,61 +55,30 @@ public class Main {
 
                 case 1:
 
-                    double pesoTotal=0;
-
-                    for (Persona x:personas){
-
-                        pesoTotal=pesoTotal+x.getPeso();
-                    }
-                    pesoTotal=pesoTotal/ personas.size();
-
-                    System.out.println("El peso medio es: " + pesoTotal);
+                    pesoMedio(personas);
 
                     break;
 
                 case 2:
-                    double alturaTotal=0;
 
-                    for (Persona x:personas){
-
-                        alturaTotal=alturaTotal+x.getAltura();
-                    }
-                    alturaTotal=alturaTotal/ personas.size();
-
-                    System.out.println("La altura media es: " + alturaTotal);
+                    alturaMedia(personas);
 
                     break;
 
                 case 3:
 
-                    int edadTotal=0;
-
-                    for (Persona x:personas){
-
-                        edadTotal=edadTotal+x.getEdad();
-                    }
-                    edadTotal=edadTotal/ personas.size();
-
-                    System.out.println("La edad media es: " + edadTotal);
+                    edadMedia(personas);
 
                     break;
 
                 case 4:
-                    int contadorH=0;
-                    int contadorM=0;
-                    for (Persona x:personas){
 
-                        if(x.getGenero()==Genero.H){
-                            contadorH++;
-                        }else if(x.getGenero()==Genero.M){
-                            contadorM++;
-                        }
+                    genero(personas);
 
-                    }
-
-                    System.out.println("La cantidad de hombres es: " + contadorH);
-                    System.out.println("La cantidad de mujeres es: " + contadorM);
                     break;
+
+                default:
+                    System.out.println("Opción equivocada");
 
             }
 
