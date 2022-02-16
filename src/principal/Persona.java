@@ -1,11 +1,13 @@
 package principal;
 
-import java.util.ArrayList;
+import java.util.Scanner;
 
 enum Genero{
     H, M, O
 }
+
 public  class Persona implements  Comparable<Persona> {
+
 
     /**
      * Programa que estudia el diseño para un tipo de persona, del que se recoge diferentes atributos.
@@ -33,8 +35,9 @@ public  class Persona implements  Comparable<Persona> {
     private double peso;
 
     // Constructor por defecto
-    public Persona(){
+    public Persona( int edad){
 
+        this.edad=edad;
     }
 
     /**
@@ -110,7 +113,7 @@ public  class Persona implements  Comparable<Persona> {
     }
 
 
-    public static void pesoMedio(ArrayList <Persona> listaPersonas){
+    public static void pesoMedio(Persona[] listaPersonas){
 
 
         double pesoTotal=0;
@@ -119,13 +122,13 @@ public  class Persona implements  Comparable<Persona> {
 
             pesoTotal=pesoTotal+x.getPeso();
         }
-        pesoTotal=pesoTotal/ listaPersonas.size();
+        pesoTotal=pesoTotal/ listaPersonas.length;
 
         System.out.println("El peso medio es: " + pesoTotal);
 
     }
 
-    public static void alturaMedia(ArrayList <Persona> listaPersonas){
+    public static void alturaMedia(Persona[] listaPersonas){
 
         double alturaTotal=0;
 
@@ -133,28 +136,28 @@ public  class Persona implements  Comparable<Persona> {
 
             alturaTotal=alturaTotal+x.getAltura();
         }
-        alturaTotal=alturaTotal/ listaPersonas.size();
+        alturaTotal=alturaTotal/ listaPersonas.length;
 
         System.out.println("La altura media es: " + alturaTotal);
 
     }
 
 
-    public static void edadMedia(ArrayList <Persona> listaPersona){
+    public static void edadMedia(Persona[] listaPersona){
         int edadTotal=0;
 
         for (Persona x:listaPersona){
 
             edadTotal=edadTotal+x.getEdad();
         }
-        edadTotal=edadTotal/ listaPersona.size();
+        edadTotal=edadTotal/ listaPersona.length;
 
         System.out.println("La edad media es: " + edadTotal);
 
     }
 
 
-    public static void genero(ArrayList <Persona> listaPersonas){
+    public static void genero(Persona[] listaPersonas){
 
         int contadorH=0;
         int contadorM=0;
@@ -170,6 +173,81 @@ public  class Persona implements  Comparable<Persona> {
 
         System.out.println("La cantidad de hombres es: " + contadorH);
         System.out.println("La cantidad de mujeres es: " + contadorM);
+
+    }
+
+
+    public static void menu(Persona [] personas){
+
+        Scanner sc = new Scanner(System.in);
+        int opcion=0;
+        while (opcion!=5) {
+            System.out.println("Introduce el número de la tarea a realizar:");
+            System.out.println("1. Peso medio");
+            System.out.println("2. Altura media");
+            System.out.println("3. Edad media");
+            System.out.println("4. Cantidad de hombres y mujeres");
+            System.out.println("5. Salir ");
+            opcion=sc.nextInt();
+
+            switch (opcion) {
+
+                case 1:
+
+                    pesoMedio(personas);
+
+                    break;
+
+                case 2:
+
+                    alturaMedia(personas);
+
+                    break;
+
+                case 3:
+
+                    edadMedia(personas);
+
+                    break;
+
+                case 4:
+
+                    genero(personas);
+
+                    break;
+
+                default:
+
+                    if(opcion!=5) {
+                        System.out.println("Opción equivocada");
+                    }
+            }
+        }
+    }
+
+
+
+    public void anadirPersonas(Persona [] personas){
+
+        Scanner sc = new Scanner(System.in);
+
+        Persona dasdas = null;
+        System.out.println("Introduce la cantidad de personas a introducir");
+        int persona=sc.nextInt();
+
+        for(int i =persona; i>0  ;i--){
+
+            System.out.println("Introduzca la edad");
+            dasdas.setEdad(sc.nextInt());
+
+
+            personas[i]= dasdas;
+
+
+
+        }
+
+
 
     }
 
